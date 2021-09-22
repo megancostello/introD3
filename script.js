@@ -1,4 +1,5 @@
 async function scatter(){
+    //scatter plot for european city data 
     let cityData;
 
     await d3.csv('cities.csv', d3.autoType).then(data=>{
@@ -7,9 +8,7 @@ async function scatter(){
         
     })
     console.log('city data ', cityData);
-    // for (let x=0; x<cityData.length; x++) {
-    //     console.log(cityData[x].eu);
-    // }
+
     let europeanCountries = cityData.filter(country => country.eu == true);
     console.log('euro cities ', europeanCountries);
     d3.select('.city-count').text('Number of cities: ' + europeanCountries.length);
@@ -39,7 +38,7 @@ async function scatter(){
         .attr("fill", "orange");
 
     let bigCities = europeanCountries.filter(country => country.population > 1000000);
-    
+    //labels for circles with large population
     svg.selectAll("text")
         .data(bigCities)
         .enter()
@@ -58,7 +57,7 @@ async function scatter(){
 };
         
 scatter();
-
+//bar chart of tallest buildings
 async function bar(){
     let buildingData;
 
@@ -75,7 +74,7 @@ async function bar(){
         .append('svg')
         .attr('width', width)
         .attr('height', height);
-    
+    //bar chart - horizontal
     svg.selectAll("rect")
         .data(buildingData)
         .enter()
@@ -102,7 +101,7 @@ async function bar(){
                 .data(buildingData)
                 .enter();
 
-    
+    //building name for bar chart
     texts.append("text")
         .text(function (d, i){
         return d.building;
@@ -112,7 +111,7 @@ async function bar(){
             return i*(50)+25;
         })
         .attr("font-size", 15);
-
+    //building height for bar chart
     texts.append("text")
         .text(function (d, i){
         return d.height_ft + " ft";
