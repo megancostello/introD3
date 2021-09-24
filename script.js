@@ -98,6 +98,13 @@ async function bar(){
                 d3.select('.year').text(i.completed);
                 d3.select('.floors').text(i.floors);
             });
+    
+    d3.select('.image').attr("src", ("/introD3/img/img/" + buildingData[0].image));
+    d3.select('.building-name').text( buildingData[0].building);
+    d3.select('.height').text( buildingData[0].height_ft);
+    d3.select('.city').text( buildingData[0].city);
+    d3.select('.year').text( buildingData[0].completed);
+    d3.select('.floors').text( buildingData[0].floors);
 
     let texts = svg.selectAll("text")
                 .data(buildingData)
