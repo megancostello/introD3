@@ -44,7 +44,7 @@ async function scatter(){
         .enter()
         .append("text")
         .text(function (d, i){
-        return d.country;
+        return d.city;
         })
         .attr("dx", function (d, i){
             return d.x;
