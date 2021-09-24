@@ -91,7 +91,7 @@ async function bar(){
         .on("click", function(d, i) {
             // Do something after clicking a bar
             
-                d3.select('.image').attr("src", ("/introD3/img/img/" + i.image +".jpg"));
+                d3.select('.image').attr("src", ("/introD3/img/img/" + i.image));
                 d3.select('.building-name').text(i.building);
                 d3.select('.height').text(i.height_ft);
                 d3.select('.city').text(i.city);
